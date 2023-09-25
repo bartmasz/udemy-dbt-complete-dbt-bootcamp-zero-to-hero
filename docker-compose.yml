@@ -7,13 +7,13 @@ services:
     environment:
       POSTGRES_USER: dbt_user
       POSTGRES_PASSWORD: dbt_password_123
-      POSTGRES_DB: dbt_airflow_db
+      POSTGRES_DB: dbt_airbnb_db
     volumes:
       - postgres-db-volume:/var/lib/postgresql/data
     ports:
       - 5432:5432
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "dbt_user", "-d", "dbt_airflow_db"]
+      test: ["CMD", "pg_isready", "-U", "dbt_user", "-d", "dbt_airbnb_db"]
       interval: 5s
       retries: 5
       start_period: 5s
