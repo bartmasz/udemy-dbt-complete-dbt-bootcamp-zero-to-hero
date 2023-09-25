@@ -8,7 +8,7 @@ with src_listings as (select * from {{ ref('src_listings') }})
 
 select
     listing_id,
-    replace(price_str, '$')::number(10, 2) as price,
+    REPLACE(price_str,'$', '') :: decimal(10,2) AS price,
     listing_name,
     created_at,
     room_type,

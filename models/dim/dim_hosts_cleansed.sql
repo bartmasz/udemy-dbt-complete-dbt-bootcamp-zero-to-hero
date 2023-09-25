@@ -11,7 +11,10 @@ select
         when host_name is not null then host_name
         else 'Anonymous'
     end as host_name, 
-    is_superhost, 
+    case
+        when is_superhost in ('t', 'f') then is_superhost
+        else 'f'
+    end as is_superhost, 
     created_at, 
     updated_at
 from dim_hosts_cleansed
