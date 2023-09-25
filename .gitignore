@@ -2,3 +2,5 @@
 target/
 dbt_packages/
 logs/
+input_data/*.csv
+!input_data/setup_airbnb_db_in_postgres.sql

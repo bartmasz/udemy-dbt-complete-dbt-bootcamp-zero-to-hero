@@ -1,4 +1,4 @@
--- Set up the defaults
+CREATE SCHEMA IF NOT EXISTS raw;
 SET search_path TO raw;
 
 DROP TABLE IF EXISTS raw_listings;
@@ -13,6 +13,7 @@ CREATE TABLE raw_listings(
     created_at varchar NULL,
     updated_at varchar NULL
 );
+COPY raw_listings FROM '/input_data/raw_listings.csv' DELIMITER ',' CSV HEADER;
 
 DROP TABLE IF EXISTS raw_hosts;
 CREATE TABLE raw_hosts (
@@ -22,6 +23,7 @@ CREATE TABLE raw_hosts (
 	created_at varchar NULL,
 	updated_at varchar NULL
 );
+COPY raw_hosts FROM '/input_data/raw_hosts.csv' DELIMITER ',' CSV HEADER;
 
 DROP TABLE IF EXISTS raw_reviews;
 CREATE TABLE raw_reviews (
@@ -31,3 +33,4 @@ CREATE TABLE raw_reviews (
 	"comments" varchar NULL,
 	sentiment varchar NULL
 );
+COPY raw_reviews FROM '/input_data/raw_reviews.csv' DELIMITER ',' CSV HEADER;

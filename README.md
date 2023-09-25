@@ -33,3 +33,12 @@ dbtlearn_postgres:
       retries: 1
   target: dev
 ```
+
+### How to use it
+1. ./reset.sh
+1. dbt seed
+1. dbt run
+1. dbt snapshot
+1. dbt test
+1. dbt docs generate
+1. dbt docs serve
